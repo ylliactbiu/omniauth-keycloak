@@ -32,10 +32,10 @@ RSpec.describe OmniAuth::Strategies::KeycloakOpenId do
         .to_return(status: 200, body: body, headers: {})
       stub_request(:get, "http://localhost:8080/auth/realms/example-realm/protocol/openid-connect/certs")
         .to_return(status: 404, body: "", headers: {})
-      OmniAuth::Strategies::KeycloakOpenId.new('keycloak-openid', 'Example-Client', 'b53c572b-9f3b-4e79-bf8b-f03c799ba6ec',
+      OmniAuth::Strategies::Keycloak.new('keycloak-openid', 'Example-Client', 'b53c572b-9f3b-4e79-bf8b-f03c799ba6ec',
         client_options: {site: 'http://localhost:8080', realm: 'example-realm'})
     end
-    
+
     it 'should have the correct keycloak token url' do
       subject.setup_phase
       expect(subject.token_url).to eq('/auth/realms/example-realm/protocol/openid-connect/token')

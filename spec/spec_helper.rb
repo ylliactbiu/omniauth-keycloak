@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "omniauth/strategies/keycloak-openid"
+require "omniauth/strategies/keycloak"
 require "webmock/rspec"
 
 if RUBY_VERSION >= "1.9"
