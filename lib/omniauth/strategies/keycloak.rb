@@ -51,6 +51,7 @@ module OmniAuth
 
             info do
             {
+                :login => raw_info['preferred_username'],
                 :name => raw_info['name'],
                 :email => raw_info['email'],
                 :first_name => raw_info['given_name'],
